@@ -101,7 +101,7 @@ Moduler bør konfigureres gjennom variabler i sine egne konfigurasjonsfiler, sli
 
 ### Filstruktur
 
-En modul kan struktureres på følgende måte, selv om det naturligvis finnes grunner til å gjøre det annerledes. For eksempelets skyld tar vi her utgangspunktet i en modul for en navigasjonsmodul kalt `navigation`.
+En modul kan struktureres på følgende måte, selv om det naturligvis finnes grunner til å gjøre det annerledes. For eksempelets skyld tar vi her utgangspunktet i en modul for sidenavigasjon kalt `navigation`.
 
 ```
 navigation (folder)
