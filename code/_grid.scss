@@ -1,0 +1,122 @@
+/**
+ *  Grid system (_grid.scss)
+ *
+ *  Used to create grid systems you can use to simplify layout creation in your project.
+ */
+
+@import "grid-config";
+
+
+/** container()
+ *  Defines the CSS rules for the container element
+ */
+@mixin container() {
+  margin-left: auto;
+  margin-right: auto;
+  width: $container-width;
+  max-width: $container-max-width;
+}
+
+
+/** grid-row()
+ * Defines the CSS rules for the row element
+ */
+@mixin grid-row() {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+/** common()
+ *  Defines the common CSS rules for all grid elements
+ */
+@mixin common() {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-basis: 0%;
+  flex-shrink: 0;
+}
+
+
+/** gutters()
+ *  Defines the CSS rules for grid elements with gutters
+ */
+@mixin gutters() {
+  padding-left: $gutter;
+  padding-right: $gutter;
+}
+
+
+/** no-gutters()
+ *  Defines the CSS rules for grid elements without gutters
+ */
+@mixin no-gutters() {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+/** grid-width()
+ *  Sets the correct width/flex-basis for grid elements
+ *  @param $size The number of columns to span
+ */
+@mixin grid-width($size) {
+  flex: 0 0 ((100% / $columns) * $size);
+  max-width: ((100% / $columns) * $size);
+}
+
+
+/** grid()
+ *  Exposes the grid system directly to the rest of the Sass documents, allowing it to be
+ *  used without having to generate classes
+ *  @param $size The number of columns to span
+ *  @param $gutters true if gutters should be applied, false if not (default is true)
+ */
+@mixin grid($size, $gutters: true) {
+  @include common();
+  @include grid-width($size);
+
+  @if ($gutters == true) {
+    @include gutters();
+  }
+
+  @else {
+    @include no-gutters();
+  }
+}
+
+
+/** render()
+ *  Renders attribute module rules for the grid into your CSS file.
+ */
+@mixin render() {
+  [data-#{$grid-namespace}-container] {
+    @include container();
+  }
+
+  [data-#{$grid-namespace}-row] {
+    @include grid-row();
+  }
+
+  [data-#{$grid-namespace}] {
+    @include common();
+    @include gutters();
+  }
+
+  [data-#{$grid-namespace}][data-#{$grid-namespace}-no-gutters] {
+    @include no-gutters();
+  }
+
+  @for $i from 1 through $columns {
+    [data-#{$grid-namespace}~="#{$i}"] {
+      @include grid-width($i);
+    }
+  }
+}

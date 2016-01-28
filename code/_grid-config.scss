@@ -1,0 +1,21 @@
+/**
+ *  Grid system configuration (_grid-config.scss)
+ *
+ *  Configuration for the grid system module. Change these variables to fit your needs.
+ */
+
+
+/**
+ *  $container-width: The desired width of the container
+ *  $container-max-width: The desired max-width of the container - when the viewport is too small
+ *      to render the container in its entirety, this is how wide the container will be.
+ *  $columns: The number of columns to be used in the grid
+ *  $gutter: The gutter width (any kind of unit is accepted, however using a percentage is ideal)
+ *  $grid-namespace: The namespace used for the grid when generating grid classes through render()
+ */
+
+$container-width:     960px;
+$container-max-width: 90%;
+$columns:             12;
+$gutter:              1.2%;
+$grid-namespace:      "Grid";
