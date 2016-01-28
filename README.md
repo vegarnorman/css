@@ -105,9 +105,9 @@ En modul kan struktureres på følgende måte, selv om det naturligvis finnes gr
 
 ```
 navigation (folder)
-↳ \_navigation.scss
-↳ \_navigation-config.scss
-↳ \_navigation-functions.scss
+↳ _navigation.scss
+↳ _navigation-config.scss
+↳ _navigation-functions.scss
 ```
 
 Denne filstrukturen går ut fra at vi importerer `_navigation.scss` inn i prosjektet, og at de andre filene importeres inn i modulen direkte.
