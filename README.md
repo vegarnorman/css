@@ -9,11 +9,11 @@ Frontend-utvikling har kommet langt på kort tid. Teknologiene vi bruker har mod
 
 Men av en eller annen grunn skriver vi fortsatt CSS som om vi befinner oss på starten av 2000-tallet. Vi laster fortsatt ned Bootstrap i minifisert format og trekker det inn i prosjektene våre gjennom en `<style>`, og vi gjør den samme jobben om igjen og om igjen når vi starter nye prosjekter. Vi skriver (grovt sett) de samme reglene og klassedefinisjonene, forsøker å håndtere (grovt sett) de samme problemene vi støter på, og går automatisk ut fra at siden vi jobber med et nytt prosjekt med et nytt design og grensesnitt, må vi starte på nytt. *Do it right*, rett og slett.
 
-Hvorfor klarer vi ikke å overføre de samme prinsippene vi bruker i andre programmeringsspråk til CSS? Hvorfor skriver vi CSS-regler på nytt mange ganger når både vi selv og andre har skrevet dem før? Hvorfor løser vi de samme utfordringene og problemene om igjen og om igjen? Hva om det å skrive CSS var som å skrive JavaScript, og vi hadde NPM? Om jeg i et prosjekt kunne avgjøre hvilke "pakker" jeg hadde behov for, og deretter laste dem ned og ta dem i bruk med det samme, kunne jeg ha spart mye tid. Spaltesystem i flexbox og floats for eldre nettlesere? Check. En pakke som gjør det lett å lage pene skjemaer? Check. Sidenavigasjon som elegant brekker om til en sidebar når brukeren er på mobil? Check.
+Hvorfor klarer vi ikke å overføre de samme prinsippene vi bruker i andre programmeringsspråk til CSS? Hvorfor skriver vi CSS-regler på nytt mange ganger når både vi selv og andre har skrevet dem før? Hvorfor løser vi de samme utfordringene og problemene om igjen og om igjen? Hva om det å skrive CSS var som å skrive JavaScript, og vi hadde NPM? Om jeg i et prosjekt kunne avgjøre hvilke "pakker" jeg hadde behov for, og deretter laste dem ned og ta dem i bruk med det samme, kunne jeg ha spart mye tid. Spaltesystem i flexbox og floats for eldre nettlesere? Check. En pakke som gjør det lett å lage pene skjemaer? Check. Sidenavigasjon som elegant brekker om når brukeren er på mobil? Check.
 
 Problemet ligger ikke i teknologien vi bruker - vi har preprosessorer som gir oss tilgang på funksjoner, løkker, valgsetninger og variabler. Vi har byggverktøy som håndterer linting, testing, prefixing og minifisering for oss. Vi har alt vi kunne forvente av et hvilket som helst annet programmeringsspråk, så problemet ligger ikke i teknologien.
 
-Problemet ligger i at vi ofte ikke er gode nok til å skrive CSS for gjenbruk.
+*Problemet ligger i at vi ofte ikke er gode nok til å skrive CSS for gjenbruk.*
 
 
 ## Modularisering
@@ -111,3 +111,19 @@ navigation (folder)
 ```
 
 Denne filstrukturen går ut fra at vi importerer `_navigation.scss` inn i prosjektet, og at de andre filene importeres inn i modulen direkte.
+
+
+## Men... Hvorfor?
+
+Dette virker kanskje som en veldig komplisert måte å skrive CSS på, og vil garantert ikke passe for alle utviklere i alle prosjekter, akkurat som at funksjonell programmering ikke alltid vil passe, og at React ikke alltid vil passe. Allikevel er det klare fordeler med å skrive gjenbrukbare moduler:
+
++ **Moduler er betraktelig lettere å vedlikeholde og oppgradere ved behov.** Fremfor å maintaine 5000 linjer med CSS i et prosjekt, kan man heller maintaine mindre moduler og utbedre disse når feil oppdages. I tillegg er det lettere for forfatteren å fokusere på at koden skal gjøre bestemte ting veldig bra, fremfor mange ting sånn passe bra.
++ **Det er lettere å holde koden levende.** God kode, uansett språk, er kode som lever og puster. Kode som konstant forbedres, refaktoreres og lekes med. Mens vi svært ofte jobber aktivt med å forbedre funksjonaliteten i webapplikasjoner, skrives CSS ofte kun én gang og tas bare frem igjen hvis noe er galt. Dette er sjeldent, om ikke aldri, en god måte å skrive kode på. Hørt om utvikleren som skrev en AngularJS-app som ikke trengte å oppdateres på to år? Ikke jeg heller.
++ **Tettere tilknytning til programmeringsprinsipper.** De fleste utviklere er glade i å skrive modulær kode fordi den gir bedre oversikt, er lett å skrive enhetstester for, og tillater innkapsling av logikk på en enkel måte. Ved å skrive gjenbrukbare moduler, åpner vi for nettopp disse prinsippene.
+
+
+## Videre arbeid
+
+Det er selvfølgelig mye å ta tak i rundt gjenbrukbarhet og modularisering av CSS-kode, og mye handler om hvordan dette kan fungere i praksis. Hvordan kan vi garantere at alle skriver moduler på samme måte? Hvordan kan vi best inkludere disse i et faktisk prosjekt? Hvordan kan vi best garantere langsiktig arbeid med dette? Og viktigst av alt: er dette egentlig en god måte å skrive moduler på? Kan vi gjøre det bedre?
+
+Vil du komme med innspill? Legg gjerne igjen en kommentar i [Issues](https://github.com/vegarnorman/css/issues), både ris og ros mottas med takk! Send gjerne også innspill på e-post, i Slack eller ved frontend-bordene oppe i fjerde etasje.
