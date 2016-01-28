@@ -2,6 +2,8 @@
 
 **Skrevet av Vegar Norman @ Making Waves, 2016**
 
+Dette repoet inneholder en kort artikkel om modularisering og gjenbrukbarhet av CSS, kodeeksempler og presentasjon i PDF-format. Presentasjonen ble holdt for frontend-faggruppa ved [Making Waves](http://www.makingwaves.no) den 29. januar 2016. Teksten inneholder forfatterens subjektive meninger, og er ment som "food for thought" for å skape diskusjon om hvorvidt vi kan skrive CSS på en bedre måte enn vi ofte gjør. Kommentarer eller spørsmål? Legg gjerne igjen noe på [Issues](https://github.com/vegarnorman/css/issues), enten du var på presentasjonen eller synes temaet virker spennende.
+
 
 ## Problemet
 
